@@ -1,0 +1,87 @@
+Compilación Python: OK
+Sin errores de compilación.
+
+Salida de pruebas:
+=== PRUEBAS DE QPM CLOTHES ===
+
+--- pruebas.prueba_modelos ---
+OK: crear pedido y prenda
+OK: serialización y reconstrucción
+OK: historial inicial creado
+OK: rechaza pedido sin prendas
+
+--- pruebas.prueba_validaciones ---
+OK: fecha válida
+OK: fecha inválida rechazada
+OK: hora válida
+OK: cantidad positiva
+OK: cantidad cero rechazada
+OK: código normalizado
+OK: código vacío rechazado
+OK: cantidad negativa rechazada
+OK: cantidad no numérica rechazada
+OK: cantidad decimal rechazada
+OK: hora inválida rechazada
+OK: estado inválido rechazado
+OK: talla y tipo se normalizan
+OK: talla inválida rechazada
+
+--- pruebas.prueba_reglas_negocio ---
+OK: transición permitida
+OK: transición no permitida rechazada
+OK: no se salta de Recibido a Listo
+OK: edición solo en Recibido y En preparación
+OK: pedido próximo a vencer
+OK: pedido atrasado
+OK: vencimiento fuera de la ventana de 2 días
+OK: entregado nunca aparece atrasado
+OK: registrar: código normalizado y estado inicial
+OK: registrar: historial inicial con fecha y hora de trabajo
+OK: registrar: código duplicado rechazado
+OK: registrar: sin prendas rechazado y no se crea
+OK: registrar: entrega anterior al registro rechazada
+OK: registrar: cantidad inválida rechazada
+OK: persistencia: pedido e historial se recuperan
+OK: estado escrito en minúsculas se acepta
+OK: cambio de estado queda en historial con fecha y hora
+OK: transición inválida conserva el estado
+OK: estado inexistente rechazado
+OK: actualizar: cliente y fecha
+OK: actualizar: fecha inválida conserva datos
+OK: actualizar: lista de prendas vacía rechazada
+OK: actualizar: pedido inexistente
+OK: actualizar: Listo queda bloqueado
+OK: actualizar: Entregado queda bloqueado
+OK: cancelar: Entregado rechazado
+OK: cancelar: pedido se conserva con estado y historial
+OK: atrasados: solo no finalizados con fecha pasada
+OK: próximos a vencer: dentro de 2 días
+OK: próximos a vencer incluye vencimiento en 2 días
+OK: búsqueda parcial por código
+OK: búsqueda parcial por cliente sin importar mayúsculas
+OK: búsqueda sin coincidencias
+OK: búsqueda vacía rechazada
+OK: filtro por estado
+OK: fecha de trabajo no puede retroceder antes del último movimiento
+OK: sin fecha de trabajo no se puede registrar
+
+--- pruebas.prueba_persistencia ---
+OK: archivo inexistente produce lista vacía
+OK: guardar y cargar JSON
+OK: JSON dañado genera excepción
+OK: JSON dañado no se modifica
+
+--- pruebas.prueba_reportes ---
+OK: reporte pendientes
+OK: reporte entregados
+OK: reporte atrasados
+OK: CSV tiene encabezados y filas
+OK: CSV sin pedidos solo trae encabezados
+OK: resumen sin pedidos muestra ceros
+OK: resumen cuenta por estado
+OK: resumen calcula total y atrasados
+
+=== RESULTADO FINAL ===
+Correctas: 67
+Fallidas: 0
+Estado: APROBADO
