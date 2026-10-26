@@ -10,7 +10,7 @@ from pruebas.comprobar import comprobar
 
 def ejecutar():
     p1 = Pedido("Q-1", "Ana", "2026-10-20", "2026-10-22", [Prenda("Camiseta", "S", "blanco", 1)])
-    p2 = Pedido("Q-2", "Luis", "2026-10-20", "2026-10-20", [Prenda("Pantalón", "M", "azul", 1)], estado="Entregado")
+    p2 = Pedido("Q-2", "Luis", "2026-10-20", "2026-10-20", [Prenda("Pantalon", "M", "azul", 1)], estado="Entregado")
     comprobar("reporte pendientes", len(ReportePendientes([p1, p2], "2026-10-21").seleccionar()) == 1)
     comprobar("reporte entregados", len(ReporteEntregados([p1, p2], "2026-10-21").seleccionar()) == 1)
     comprobar("reporte atrasados", len(ReporteAtrasados([p1, p2], "2026-10-23").seleccionar()) == 1)

@@ -29,11 +29,11 @@ def _crear_gestor(carpeta):
 
 
 def ejecutar():
-    comprobar("transición permitida", not _lanza(ErrorReglaNegocio, validar_transicion, "Recibido", "En preparación"))
+    comprobar("transición permitida", not _lanza(ErrorReglaNegocio, validar_transicion, "Recibido", "En preparacion"))
     comprobar("transición no permitida rechazada", _lanza(ErrorReglaNegocio, validar_transicion, "Entregado", "Recibido"))
     comprobar("no se salta de Recibido a Listo", _lanza(ErrorReglaNegocio, validar_transicion, "Recibido", "Listo"))
-    comprobar("edición solo en Recibido y En preparación",
-              permite_edicion("Recibido") and permite_edicion("En preparación")
+    comprobar("edición solo en Recibido y En preparacion",
+              permite_edicion("Recibido") and permite_edicion("En preparacion")
               and not permite_edicion("Listo") and not permite_edicion("Entregado") and not permite_edicion("Cancelado"))
 
     p = Pedido("Q-10", "Cliente Uno", "2026-10-20", "2026-10-22", [Prenda("Camiseta", "M", "negro", 1)])
@@ -68,13 +68,13 @@ def ejecutar():
 
         gestor.actualizar_fecha_hora_trabajo("2026-10-24 11:30")
         comprobar("estado escrito en minúsculas se acepta",
-                  gestor.cambiar_estado("Q-1", "en preparación").estado == "En preparación")
+                  gestor.cambiar_estado("Q-1", "en preparacion").estado == "En preparacion")
         comprobar("cambio de estado queda en historial con fecha y hora",
                   gestor.historial_pedido("Q-1")[-1].fecha_hora == "2026-10-24 11:30"
                   and gestor.historial_pedido("Q-1")[-1].estado_anterior == "Recibido")
         comprobar("transición inválida conserva el estado",
                   _lanza(ErrorReglaNegocio, gestor.cambiar_estado, "Q-1", "Entregado")
-                  and gestor.obtener_pedido("Q-1").estado == "En preparación")
+                  and gestor.obtener_pedido("Q-1").estado == "En preparacion")
         comprobar("estado inexistente rechazado", _lanza(ErrorValidacion, gestor.cambiar_estado, "Q-1", "Enviado"))
 
         editado = gestor.actualizar_pedido("Q-1", cliente="Ana María", fecha_entrega="2026-10-28")
