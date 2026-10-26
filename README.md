@@ -204,7 +204,7 @@ python ejecutar_pruebas.py
 
 Cubren modelos, validaciones, reglas de negocio y gestor, persistencia (incluido JSON dañado) y reportes. El guion de pruebas manuales paso a paso está en `Docs/guia_de_pruebas.md`.
 
-> **Estado conocido:** en la versión entregada, dos módulos de prueba (`prueba_reglas_negocio.py` y `prueba_reportes.py`) usan valores **con tilde** (`En preparación`, `Pantalón`), mientras que la aplicación define esos valores **sin tilde**. Por eso la ejecución completa se interrumpe con un `ErrorValidacion` y no termina en `APROBADO`. Los módulos `prueba_modelos`, `prueba_validaciones` y `prueba_persistencia` pasan sin fallos. Es un desajuste de los datos de prueba, no del flujo de la aplicación.
+> **Nota:** los valores de las pruebas se escriben sin tilde, igual que en la aplicación (corregido el 26-oct-2026 mediante PR).
 
 ---
 
